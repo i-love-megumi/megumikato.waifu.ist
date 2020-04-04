@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<head>
+<meta charset=utf-8">
+<title>加藤恵</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<style type="text/css">
+html {
+	background: url(images/3.jpg) no-repeat center top fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #dedede;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+	color: #dedede;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f78fe8;
+	transition-duration: 0.4s;
+}
+
+.footer {
+	opacity: 1.0;
+	border: 1px solid #e06ca5;
+	border-radius: 4px;
+	padding: 2px;
+	position: fixed;
+	text-align: left;
+	bottom: 8px;
+	height: 24px;
+	width: 24px;
+	transition-duration: 0.8s;
+	overflow: hidden;
+}
+
+.footer-text {
+	opacity: 0.0;
+	overflow: hidden;
+}
+
+.footer:hover {
+	opacity: 0.8;
+	background: #e06ca5;
+	border: 1px solid #dedede;
+	transition-duration: 0.6s;
+	height: 24px;
+	width: 198px;
+}
+
+.footer:hover .footer-text {
+	opacity: 1.0;
+    -webkit-transition: opacity 0.6s ease-in;
+    -moz-transition: opacity 0.6s ease-in;
+    -o-transition: opacity 0.6s ease-in;
+    -ms-transition: opacity 0.6s ease-in;
+    transition: opacity 0.6s ease-in;
+	transition-delay: 0.4s;
+}
+
+</style>
+
+<body>
+<script>
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+class bg{
+	constructor(path, source) {
+		this.path = path;
+		this.source = source;
+	}
+}
+var images = [
+	new bg("1.jpg", "http://cradle.cc"),
+	new bg("530894.jpg", "http://cradle.cc"),
+	new bg("438783.jpg", "http://cradle.cc"), 
+	new bg("415888.jpg", "http://cradle.cc"),
+	new bg("385846.jpg", "http://cradle.cc"),
+	new bg("334579.jpg", "http://cradle.cc"),
+	new bg("691454.jpg", "http://cradle.cc"),
+	new bg("958773.png", "http://cradle.cc"),
+	new bg("pixiv_47633690_p0.png", "https://www.pixiv.net/en/artworks/47633690"),
+	new bg("pixiv_70820494_p0.png", "https://www.pixiv.net/en/artworks/70820494"),
+	new bg("pixiv_76205006_p0.png", "https://www.pixiv.net/en/artworks/76205006"),
+	new bg("pixiv_78331326_p0.jpg", "https://www.pixiv.net/en/artworks/78331326"),
+	new bg("pixiv_49235614_p0.jpg", "https://www.pixiv.net/en/artworks/49235614"),
+	new bg("pixiv_50635973_p0.jpg", "https://www.pixiv.net/en/artworks/50635973"),
+	new bg("collabo_img_main1.jpg", "https://www.saenai.tv/images/special/collabo/collabo_img_main1.jpg"),
+	]
+shuffleArray(images);
+var index = 0;
+
+$(document).ready(function() {
+	randomBackgroundImage();
+});
+
+function randomBackgroundImage() {
+	index = Math.floor(Math.random() * images.length);
+	setBackgroundImage(index);
+}
+
+function prevBackgroundImage() {
+	index = (index + images.length - 1) % images.length;
+	setBackgroundImage(index);
+}
+
+function nextBackgroundImage() {
+	index = (index + 1) % images.length;
+	setBackgroundImage(index);
+}
+
+function setBackgroundImage(n) {
+    $("html").css("background",''.concat("url(images/",images[n].path,") no-repeat center top fixed"));
+    $("html").css("-webkit-background-size","cover");
+    $("html").css("-moz-background-size","cover");
+    $("html").css("-o-background-size","cover");
+    $("html").css("-ms-background-size","cover");
+    $("html").css("background-size","cover");
+	document.getElementById("link").href = images[n].source;
+}
+</script>
+<div class="footer"><div class = "footer-text"><a href="#" id="link">src</a> - <a href="javascript:prevBackgroundImage();">prev</a> - <a href="javascript:nextBackgroundImage();">next</a> - <a href="http://megumikato.waifu.ist">愛している</a></div></div>
+</body>
+</html>
+
+<!-- 会えて良かった -->
